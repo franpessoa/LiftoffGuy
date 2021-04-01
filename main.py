@@ -40,7 +40,7 @@ def indnextl():
 
 
 def apod_get():
-  nx = requests.get('https://api.nasa.gov/planetary/apod?api_key=EfsbEyksPoKX2h4uvVgAFudxt4QYodjwvFciUSWE')
+  nx = requests.get(f'https://api.nasa.gov/planetary/apod?api_key={os.getenv('NASA_API_KEY')}')
   data = json.loads(nx.text)
   name = data["title"]
   des = data["explanation"]
