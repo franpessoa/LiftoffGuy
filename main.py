@@ -479,7 +479,7 @@ async def add(ctx):
 @client.command()
 async def github(ctx):
   await ctx.send('''Github do projeto:
-  github.com/franpessoa/LOXLoadingComplete''')
+  https://github.com/franpessoa/LOXLoadingComplete''')
 
 keep_alive()
 client.run(os.getenv('BOT_TOKEN'))
