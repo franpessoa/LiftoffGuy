@@ -3,7 +3,7 @@ import os
 import requests
 import json
 from discord.ext import commands
-from hosting import keep_alive
+from hosting import host_bot
 
 client = commands.Bot(command_prefix='=', help_command=None)
 
