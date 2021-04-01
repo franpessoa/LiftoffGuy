@@ -1,6 +1,7 @@
 Bot para o discord feito com a biblioteca discord.py.
 Além dá própria discord.py não precisa de nenhuma outra biblioteca (se em não me engano) para funcionar. Teste você mesmo.
-Feito no replit e hosteado no UptimeRobot
+Feito no replit e hosteado no UptimeRobot 
+
 Me adicione no discord! .Francisco Pessoa#8327
 
 Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nulo** na resposta da API. 
