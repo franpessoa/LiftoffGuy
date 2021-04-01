@@ -408,7 +408,7 @@ async def rcnext(ctx):
 @client.command()
 async def ulanext(ctx):
   embedVar = ulanextl()
-  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x6f00ff)
+  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x42f5ec)
   embed.add_field(name='Foguete', value=embedVar[0], inline=True)
   embed.add_field(name='Órbita', value=embedVar[4], inline=True)
   embed.add_field(name='Missão', value=embedVar[3], inline=True)
@@ -430,7 +430,7 @@ async def asnext(ctx):
 @client.command()
 async def arnext(ctx):
   embedVar = arnextl()
-  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x6f00ff)
+  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0xffa200)
   embed.add_field(name='Foguete', value=embedVar[0], inline=True)
   embed.add_field(name='Órbita', value=embedVar[4], inline=True)
   embed.add_field(name='Missão', value=embedVar[3], inline=True)
