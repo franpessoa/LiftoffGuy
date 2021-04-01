@@ -457,7 +457,7 @@ async def help(ctx):
   =rlnext : Próximo lançamento da Rocket Lab
   =rcnext : Próximo lançamento da Roscosmos
   =ulanext : Próximo lançamento da ULA
-  =asnext : Próximo lançamento da Astra
+  =asnext : Próximo lançamento da Astra (Comando Falho)
   =arnext : Próximo lançamento do Arianespace Group
   
   =next : Próximo lançamento
