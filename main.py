@@ -397,7 +397,7 @@ async def rlnext(ctx):
 @client.command()
 async def rcnext(ctx):
   embedVar = rcnextl()
-  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x6f00ff)
+  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x85d113)
   embed.add_field(name='Foguete', value=embedVar[0], inline=True)
   embed.add_field(name='Órbita', value=embedVar[4], inline=True)
   embed.add_field(name='Missão', value=embedVar[3], inline=True)
