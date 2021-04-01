@@ -466,7 +466,7 @@ async def help(ctx):
   =next : Próximo lançamento
   =apod : Imagem do dia pela NASA
   
-  Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nulo** na resposta da API. Isso significa que aquele parâmetro ainda não foi definido, e provavelmente o lançamento ainda está longe de acontecer. Quando a data de lançamento estiver próximo, com quase total certeza ele vai aparecer
+  Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nulo** na resposta da API. Isso significa que aquele parâmetro ainda não foi definido, e provavelmente o lançamento ainda está longe de acontecer.
   
   Criado por .Francisco Pessoa#8327'''
   await ctx.send(help_text)
