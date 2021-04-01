@@ -450,6 +450,9 @@ async def apod(ctx):
 async def help(ctx):
   help_text = '''**LISTA DE COMANDOS**
   =help : Lista de Comandos
+  =add : Adicione o bot em seu server
+  =github : Github do projeto
+  
   =indnext : Próximo lançamento da ISRO
   =chnext : Próximo lançamento da China
   =nasanext : Próximo lançamento da NASA
@@ -467,5 +470,16 @@ async def help(ctx):
   
   Criado por .Francisco Pessoa#8327'''
   await ctx.send(help_text)
+
+@client.command()
+async def add(ctx):
+  await ctx.send('''Adicione-me em seu server!
+  https://discord.com/api/oauth2/authorize?client_id=817438170097385523&permissions=8&scope=bot''')
+
+@client.command()
+async def github(ctx):
+  await ctx.send('''Github do projeto:
+  github.com/franpessoa/LOXLoadingComplete''')
+
 keep_alive()
 client.run(os.getenv('BOT_TOKEN'))
