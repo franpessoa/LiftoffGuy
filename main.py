@@ -439,17 +439,6 @@ async def arnext(ctx):
   await ctx.send(embed=embed)
 
 @client.command()
-async def esanext(ctx):
-  embedVar = esanextl()
-  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x6f00ff)
-  embed.add_field(name='Foguete', value=embedVar[0], inline=True)
-  embed.add_field(name='Órbita', value=embedVar[4], inline=True)
-  embed.add_field(name='Missão', value=embedVar[3], inline=True)
-  embed.add_field(name='Tipo', value=embedVar[5], inline=True)
-  embed.add_field(name='Status', value=embedVar[6], inline=True)
-  await ctx.send(embed=embed)
-
-@client.command()
 async def apod(ctx):
   # lista = [url, hora, des, name]
   act = apod_get()
