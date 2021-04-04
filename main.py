@@ -8,38 +8,6 @@ from hosting import host_bot
 
 client = commands.Bot(command_prefix='=', help_command=None)
 
-def indnextl():
-  or_abbrev = 'Sem Info'
-  nx = requests.get('https://spacelaunchnow.me/api/ll/2.2.0/launch/upcoming/?search=india&format=json')
-  nx_json = json.loads(nx.text)
-  data = nx_json["results"]
-  next = data[0]
-  nome = next['name']
-  lsp = next['launch_service_provider']
-  mission = next['mission']
-  descricao = mission['description']
-  if descricao == None:
-    descricao = "Sem descrição"
-  mission_name = mission['name']
-  tipo = mission['type']
-  orbit = mission['orbit']
-  print(orbit)
-  print(type(orbit))
-  if orbit == None:
-    or_abbrev = 'Sem Info'
-  else:
-    or_abrev = orbit['abbrev']
-  provider = lsp['name']
-  rocket = next['rocket']
-  config = rocket['configuration']
-  rocket_ = config['name']
-  provider = lsp['name']
-  status = next['status']
-  status_ = status['abbrev']
-  lista = [rocket_, provider, nome, mission_name, or_abbrev, tipo, status_, descricao]
-  return lista
-
-
 def apod_get():
   nx = requests.get(f'https://api.nasa.gov/planetary/apod?api_key={os.getenv('NASA_API_KEY')}')
   data = json.loads(nx.text)
@@ -52,7 +20,7 @@ def apod_get():
 
 
 @client.command()
-async def indnext(ctx, arg):
+async def next(ctx, arg):
   embedVar = nextl()
   embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x00ff95)
   embed.add_field(name='Foguete', value=embedVar[0], inline=True)
