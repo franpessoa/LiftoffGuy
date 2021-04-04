@@ -14,7 +14,10 @@ def company_name(nome):
   if nome.lower() == 'ariane': cnome = 'arianespace'
   if nome.lower() == 'russia': cnome = 'roscosmos'
   if nome.lower() == 'roscosmos': cnome = 'roscosmos'
-  url = company_url(cnome)
+  if nome == None or nome == '':
+    url = 'https://spacelaunchnow.me/api/ll/2.2.0/launch/upcoming/?format=json'
+  else:
+    url = company_url(cnome)
   return url
 
 def company_url(urlname):
