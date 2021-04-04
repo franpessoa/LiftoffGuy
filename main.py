@@ -2,6 +2,7 @@ import discord
 import os
 import requests
 import json
+import company
 from discord.ext import commands
 from hosting import host_bot
 
