@@ -1,3 +1,6 @@
+import json
+import requests
+
 def next(url):
   or_abbrev = 'Sem Info'
   nx = requests.get('url')
