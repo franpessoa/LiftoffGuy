@@ -44,17 +44,7 @@ async def help(ctx):
   =add : Adicione o bot em seu server
   =github : Github do projeto
   
-  =indnext : Próximo lançamento da ISRO
-  =chnext : Próximo lançamento da China
-  =nasanext : Próximo lançamento da NASA
-  =sxnext : Próximo lançamento da SpaceX
-  =rlnext : Próximo lançamento da Rocket Lab
-  =rcnext : Próximo lançamento da Roscosmos
-  =ulanext : Próximo lançamento da ULA
-  =asnext : Próximo lançamento da Astra (Comando Falho)
-  =arnext : Próximo lançamento do Arianespace Group
-  
-  =next : Próximo lançamento
+  =next {companhia (opcional)} : Próximo lançamento
   =apod : Imagem do dia pela NASA
   
   Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nulo** na resposta da API. Isso significa que aquele parâmetro ainda não foi definido, e provavelmente o lançamento ainda está longe de acontecer.
