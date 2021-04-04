@@ -10,9 +10,10 @@ Quando a data de lançamento estiver próximo, com quase total certeza ele vai a
 
 Para que ele funcione no seu computador, crie um arquivo chamado .env, lá digite o seguinte código: 
 
+```
 BOT_TOKEN = 'token do sue bot (remova as aspas)'
-
 NASA_API_TOKEN = 'token da api da nasa : https://api.nasa.gov (remova as aspas)'
+```
 
 Remova o texto e coloque seus tokens
 
