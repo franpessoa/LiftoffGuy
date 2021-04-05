@@ -1,6 +1,8 @@
 import discord
 import os
 import apirequest
+import json
+import requests
 from discord.ext import commands
 from hosting import host_bot
 
@@ -56,9 +58,10 @@ async def help(ctx):
   =github : Github do projeto
   
   =next : Próximo lançamento
-  =company {compania} : Próximo lançamento de determinada companhia
+  =company {companhia} : Próximo lançamento de determinada companhia
   =apod : Imagem do dia pela NASA
   =list : Lista de companhias suportadas
+  =issnow : Posição atual da ISS
   
   Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nulo** na resposta da API. Isso significa que aquele parâmetro ainda não foi definido, e provavelmente o lançamento ainda está longe de acontecer.
   
@@ -74,6 +77,19 @@ async def add(ctx):
 async def github(ctx):
   await ctx.send('''Github do projeto:
   https://github.com/franpessoa/LOXLoadingComplete''')
+
+@client.command()
+async def issnow(ctx):
+  url = 'http://api.open-notify.org/iss-now.json'
+  issnow = requests.get(url)
+  issnow_data = json.loads(issnow.text)
+  issnow_list = issnow_data["iss_position"]
+  latitude = issnow_list["latitude"]
+  longitude = issnow_list["longitude"]
+  embed = discord.Embed(title="Posição da ISS", description="Dados por API Open Notify", color=0x8ceb34)
+  embed.add_field(name='Latitude', value=latitude, inline=True)
+  embed.add_field(name='Longitude', value=longitude, inline=True)
+  await ctx.send(embed=embed)
 
 @client.command()
 async def list(ctx):
