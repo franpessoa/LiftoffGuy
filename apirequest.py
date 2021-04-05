@@ -3,7 +3,7 @@ import requests
 
 def next(url):
   or_abbrev = 'Sem Info'
-  nx = requests.get('url')
+  nx = requests.get(url)
   nx_json = json.loads(nx.text)
   data = nx_json["results"]
   next = data[0]
