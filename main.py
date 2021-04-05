@@ -77,7 +77,7 @@ async def github(ctx):
 
 @client.command()
 async def list(ctx):
-  await ctx.send(file=discord.File('list.txt')
+  await ctx.send(file=discord.File('list.txt'))
 
 host_bot()
 client.run(os.getenv('BOT_TOKEN'))
