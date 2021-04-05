@@ -64,5 +64,5 @@ async def github(ctx):
   await ctx.send('''Github do projeto:
   https://github.com/franpessoa/LOXLoadingComplete''')
 
-keep_alive()
+host_bot()
 client.run(os.getenv('BOT_TOKEN'))
