@@ -17,5 +17,7 @@ NASA_API_TOKEN = 'token da api da nasa : https://api.nasa.gov (remova as aspas)'
 
 Remova o texto e coloque seus tokens
 
+Esse bot foi programado para rodar no Replit. Para rodar em outras plataformas, como localmente e em servidores pode ser necessário alterar o código
+
 Para adicionar o bot, https://discord.com/api/oauth2/authorize?client_id=817438170097385523&permissions=8&scope=bot
 
