@@ -1,3 +1,6 @@
+Companhias Suportadas:
+(clique em expandir)
+
 rocket_lab
 lab
 isro
