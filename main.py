@@ -20,7 +20,7 @@ def apod_get():
 @client.command()
 async def next(ctx):
   url = apirequest.no_search()
-  embedVar = apirequest.next(url)
+  embedVar = apirequest.request(url)
   embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x00ff95)
   embed.add_field(name='Foguete', value=embedVar[0], inline=True)
   embed.add_field(name='Órbita', value=embedVar[4], inline=True)
