@@ -8,7 +8,7 @@ from hosting import host_bot
 client = commands.Bot(command_prefix='=', help_command=None)
 
 def apod_get():
-  nx = requests.get(f'https://api.nasa.gov/planetary/apod?api_key={os.getenv('NASA_API_KEY')}')
+  nx = requests.get(f'https://api.nasa.gov/planetary/apod?api_key={os.getenv(NASA_API_KEY)}')
   data = json.loads(nx.text)
   name = data["title"]
   des = data["explanation"]
@@ -44,8 +44,10 @@ async def help(ctx):
   =add : Adicione o bot em seu server
   =github : Github do projeto
   
-  =next {companhia (opcional)} : Próximo lançamento
+  =next : Próximo lançamento
+  =company {compania} : Próximo lançamento de determinada companhia
   =apod : Imagem do dia pela NASA
+  =list : Lista de companhias suportadas
   
   Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nulo** na resposta da API. Isso significa que aquele parâmetro ainda não foi definido, e provavelmente o lançamento ainda está longe de acontecer.
   
