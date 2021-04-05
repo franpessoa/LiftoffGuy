@@ -19,7 +19,7 @@ def company_name(nome):
 
 def no_search():
   url = 'https://spacelaunchnow.me/api/ll/2.2.0/launch/upcoming/?format=json'
-  return
+  return url
 
 def company_url(urlname):
   url = f'https://spacelaunchnow.me/api/ll/2.2.0/launch/upcoming/?search={urlname}&format=json'
