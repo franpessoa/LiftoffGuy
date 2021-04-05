@@ -14,11 +14,12 @@ def company_name(nome):
   if nome.lower() == 'ariane': cnome = 'arianespace'
   if nome.lower() == 'russia': cnome = 'roscosmos'
   if nome.lower() == 'roscosmos': cnome = 'roscosmos'
-  if nome == None or nome == '':
-    url = 'https://spacelaunchnow.me/api/ll/2.2.0/launch/upcoming/?format=json'
-  else:
-    url = company_url(cnome)
+  url = company_url(cnome)
   return url
+
+def no_search():
+  url = 'https://spacelaunchnow.me/api/ll/2.2.0/launch/upcoming/?format=json'
+  return
 
 def company_url(urlname):
   url = f'https://spacelaunchnow.me/api/ll/2.2.0/launch/upcoming/?search={urlname}&format=json'
