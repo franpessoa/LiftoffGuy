@@ -64,5 +64,9 @@ async def github(ctx):
   await ctx.send('''Github do projeto:
   https://github.com/franpessoa/LOXLoadingComplete''')
 
+@client.command()
+async def list(ctx):
+  await ctx.send_file('list.txt')
+
 host_bot()
 client.run(os.getenv('BOT_TOKEN'))
