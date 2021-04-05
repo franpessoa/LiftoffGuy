@@ -1,7 +1,6 @@
 import discord
 import os
 import apirequest
-import company
 from discord.ext import commands
 from hosting import host_bot
 
@@ -20,7 +19,7 @@ def apod_get():
 
 @client.command()
 async def next(ctx):
-  url = company.no_search()
+  url = apirequest.no_search()
   embedVar = apirequest.next(url)
   embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x00ff95)
   embed.add_field(name='Foguete', value=embedVar[0], inline=True)
@@ -32,7 +31,7 @@ async def next(ctx):
 
 @client.command()
 async def company(ctx, argument):
-  url = company.company_name(argument)
+  url = apirequest.company_name(argument)
   embedVar = apirequest.next(url)
   embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x00ff95)
   embed.add_field(name='Foguete', value=embedVar[0], inline=True)
