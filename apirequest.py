@@ -1,3 +1,6 @@
+import requests
+import json
+
 def company_name(nome):
   cnome = ' '
   if nome.lower() == 'ula': cnome = 'United'
