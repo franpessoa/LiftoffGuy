@@ -7,7 +7,6 @@ from discord.ext import commands
 from hosting import host_bot
 
 client = commands.Bot(command_prefix='=', help_command=None)
-await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the sky | =help =github =add"))
 
 def apod_get():
   nx = requests.get(f'https://api.nasa.gov/planetary/apod?api_key={os.getenv(NASA_API_KEY)}')
@@ -19,6 +18,17 @@ def apod_get():
   lista = [url, hora, des, name]
   return lista
 
+@client.event()
+async def on_server_join(ctx):
+    for guild in bot.guilds:
+        for channel in guild.text_channels:
+            if channel.permissions_for(guild.me).say:
+                await ctx.message.channel.send('Hello! \nMeu prefixo aqui é =, mas para ver o que eu posso fazer digite =help')
+                break
+
+@client.event()
+async def on_ready():
+  await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the sky | =help =github =add"))
 
 @client.command()
 async def next(ctx):
