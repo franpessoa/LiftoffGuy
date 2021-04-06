@@ -19,16 +19,9 @@ def apod_get():
   return lista
 
 @client.event()
-async def on_server_join(ctx):
-    for guild in bot.guilds:
-        for channel in guild.text_channels:
-            if channel.permissions_for(guild.me).say:
-                await ctx.message.channel.send('Hello! \nMeu prefixo aqui é =, mas para ver o que eu posso fazer digite =help')
-                break
-
-@client.event()
-async def on_ready():
-  await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the sky | =help =github =add"))
+async def presence(ctx):
+  await ctx.send("Okok")
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the sky | =help =github =add"))
 
 @client.command()
 async def next(ctx):
