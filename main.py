@@ -7,6 +7,7 @@ from discord.ext import commands
 from hosting import host_bot
 
 client = commands.Bot(command_prefix='=', help_command=None)
+await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the sky | =help =github =add"))
 
 def apod_get():
   nx = requests.get(f'https://api.nasa.gov/planetary/apod?api_key={os.getenv(NASA_API_KEY)}')
