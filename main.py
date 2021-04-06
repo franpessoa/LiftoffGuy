@@ -18,7 +18,7 @@ def apod_get():
   lista = [url, hora, des, name]
   return lista
 
-@client.event()
+@client.command()
 async def presence(ctx):
   await ctx.send("Okok")
   await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the sky | =help =github =add"))
