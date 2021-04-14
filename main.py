@@ -33,6 +33,7 @@ async def next(ctx):
   embed.add_field(name='Missão', value=embedVar[3], inline=True)
   embed.add_field(name='Tipo', value=embedVar[5], inline=True)
   embed.add_field(name='Status', value=embedVar[6], inline=True)
+  embed.add_field(name='Pad', value=embedVar[8], inline=True)
   await ctx.send(embed=embed)
 
 @client.command()
@@ -45,6 +46,7 @@ async def company(ctx, argument):
   embed.add_field(name='Missão', value=embedVar[3], inline=True)
   embed.add_field(name='Tipo', value=embedVar[5], inline=True)
   embed.add_field(name='Status', value=embedVar[6], inline=True)
+  embed.add_field(name='Pad', value=embedVar[8], inline=True)
   await ctx.send(embed=embed)
 
 @client.command()

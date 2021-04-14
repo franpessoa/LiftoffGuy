@@ -33,10 +33,12 @@ def request(url):
   nx = requests.get(url)
   nx_json = json.loads(nx.text)
   data = nx_json["results"]
-  next = data[0]
-  nome = next['name']
-  lsp = next['launch_service_provider']
-  mission = next['mission']
+  nextc = data[0]
+  pad = nextc['pad']
+  pad_name = pad['name']
+  nome = nextc['name']
+  lsp = nextc['launch_service_provider']
+  mission = nextc['mission']
   descricao = mission['description']
   if descricao == None:
     descricao = "Sem descrição"
@@ -56,5 +58,5 @@ def request(url):
   provider = lsp['name']
   status = next['status']
   status_ = status['abbrev']
-  lista = [rocket_, provider, nome, mission_name, or_abbrev, tipo, status_, descricao]
+  lista = [rocket_, provider, nome, mission_name, or_abbrev, tipo, status_, descricao, pad_name]
   return lista
