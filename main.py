@@ -3,10 +3,12 @@ import os
 import apirequest
 import json
 import requests
+import random
 from discord.ext import commands
 from hosting import host_bot
 
 client = commands.Bot(command_prefix='=', help_command=None)
+tobe = ['o céu | =help =github = add', 'a via láctea | =help =github = add', 'a API do discord | =help =github = add']
 
 def apod_get():
   nx = requests.get(f'https://api.nasa.gov/planetary/apod?api_key={os.getenv(NASA_API_KEY)}')
@@ -21,13 +23,13 @@ def apod_get():
 @client.command()
 async def presence(ctx):
   await ctx.send("Okok")
-  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the sky | =help =github =add"))
+  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=random.choice(tobe)))
 
 @client.command()
 async def next(ctx):
   url = apirequest.no_search()
   embedVar = apirequest.request(url)
-  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x00ff95)
+  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0xffdd00)
   embed.add_field(name='Foguete', value=embedVar[0], inline=True)
   embed.add_field(name='Órbita', value=embedVar[4], inline=True)
   embed.add_field(name='Missão', value=embedVar[3], inline=True)
@@ -40,7 +42,7 @@ async def next(ctx):
 async def company(ctx, argument):
   url = apirequest.company_name(argument)
   embedVar = apirequest.request(url)
-  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0x00ff95)
+  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0xffdd00)
   embed.add_field(name='Foguete', value=embedVar[0], inline=True)
   embed.add_field(name='Órbita', value=embedVar[4], inline=True)
   embed.add_field(name='Missão', value=embedVar[3], inline=True)
@@ -62,12 +64,14 @@ async def help(ctx):
   =help : Lista de Comandos
   =add : Adicione o bot em seu server
   =github : Github do projeto
+  =site : Site do bot
   
   =next : Próximo lançamento
   =company {companhia} : Próximo lançamento de determinada companhia
   =apod : Imagem do dia pela NASA
   =list : Lista de companhias suportadas
   =issnow : Posição atual da ISS
+  =presence : Muda o status do bot (temos três opções)
   
   Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nulo** na resposta da API. Isso significa que aquele parâmetro ainda não foi definido, e provavelmente o lançamento ainda está longe de acontecer.
   
@@ -83,6 +87,11 @@ async def add(ctx):
 async def github(ctx):
   await ctx.send('''Github do projeto:
   https://github.com/franpessoa/LOXLoadingComplete''')
+
+@client.command()
+async def site(ctx):
+  await ctx.send('''Site do bot:
+  https://arco.coop.br/~franpessoa/lox-loading-complete.html''')
 
 @client.command()
 async def issnow(ctx):
