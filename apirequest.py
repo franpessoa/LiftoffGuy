@@ -52,7 +52,7 @@ def request(url):
   else:
     or_abrev = orbit['abbrev']
   provider = lsp['name']
-  rocket = next['rocket']
+  rocket = nextc['rocket']
   config = rocket['configuration']
   rocket_ = config['name']
   provider = lsp['name']
