@@ -21,3 +21,4 @@ Esse bot foi programado para rodar no Replit. Para rodar em outras plataformas, 
 
 Para adicionar o bot, https://discord.com/api/oauth2/authorize?client_id=817438170097385523&permissions=8&scope=bot
 
+Site: https://arco.coop.br/~franpessoa/lox-loading-complete.html
