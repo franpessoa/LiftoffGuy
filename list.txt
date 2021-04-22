@@ -1,5 +1,5 @@
 Companhias Suportadas:
-(clique em expandir)
+(clique em expandir no computador)
 
 rocket_lab
 lab
@@ -14,3 +14,4 @@ arianespace
 ariane
 russia
 roscosmos
+ula
