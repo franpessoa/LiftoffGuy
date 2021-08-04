@@ -101,7 +101,7 @@ async def issnow(ctx):
   issnow_list = issnow_data["iss_position"]
   latitude = issnow_list["latitude"]
   longitude = issnow_list["longitude"]
-  embed = discord.Embed(title="Posição da ISS", description="Dados por API Open Notify", color=0x8ceb34)
+  embed = discord.Embed(title="Posição da ISS", description="Clique no título para ver no mapa", color=0x8ceb34, url='https://arco.coop.br/~franpessoa/iss/')
   embed.add_field(name='Latitude', value=latitude, inline=True)
   embed.add_field(name='Longitude', value=longitude, inline=True)
   await ctx.send(embed=embed)
