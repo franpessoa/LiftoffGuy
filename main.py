@@ -3,15 +3,21 @@ import os
 import apirequest
 import json
 import requests
-import random
+import asyncio
 from discord.ext import commands
-from hosting import host_bot
 
 client = commands.Bot(command_prefix='=', help_command=None)
-tobe = ['o céu | =help =github = add', 'a via láctea | =help =github = add', 'a API do discord | =help =github = add']
+
+async def change_status():
+  await client.wait_until_ready()
+  while not client.is_closed():
+    status = "em {} servers".format(len(client.guilds))
+    await client.change_presence(activity=discord.Game(name=status))
+    await asyncio.sleep(6)
+
 
 def apod_get():
-  nx = requests.get(f'https://api.nasa.gov/planetary/apod?api_key={os.getenv(NASA_API_KEY)}')
+  nx = requests.get('https://api.nasa.gov/planetary/apod?api_key={}'.format(os.getenv(NASA_API_KEY)))
   data = json.loads(nx.text)
   name = data["title"]
   des = data["explanation"]
@@ -21,22 +27,20 @@ def apod_get():
   return lista
 
 @client.command()
-async def presence(ctx):
-  await ctx.send("Okok")
-  await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=random.choice(tobe)))
-
-@client.command()
 async def next(ctx):
   url = apirequest.no_search()
   embedVar = apirequest.request(url)
-  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0xffdd00)
-  embed.add_field(name='Foguete', value=embedVar[0], inline=True)
-  embed.add_field(name='Órbita', value=embedVar[4], inline=True)
-  embed.add_field(name='Missão', value=embedVar[3], inline=True)
-  embed.add_field(name='Tipo', value=embedVar[5], inline=True)
-  embed.add_field(name='Status', value=embedVar[6], inline=True)
-  embed.add_field(name='Pad', value=embedVar[8], inline=True)
-  await ctx.send(embed=embed)
+  if not embedVar:
+    await ctx.send("Tivemos um erro :(")
+  else:
+    embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0xffdd00)
+    embed.add_field(name='Foguete', value=embedVar[0], inline=True)
+    embed.add_field(name='Órbita', value=embedVar[4], inline=True)
+    embed.add_field(name='Missão', value=embedVar[3], inline=True)
+    embed.add_field(name='Tipo', value=embedVar[5], inline=True)
+    embed.add_field(name='Status', value=embedVar[6], inline=True)
+    embed.add_field(name='Pad', value=embedVar[8], inline=True)
+    await ctx.send(embed=embed)
 
 @client.command()
 async def company(ctx, argument):
@@ -54,7 +58,7 @@ async def company(ctx, argument):
 @client.command()
 async def apod(ctx):
   act = apod_get()
-  embed = discord.Embed(title=f'{act[3]} // {act[1]}', description=act[2], url=act[0], color=0xBDFDFF)
+  embed = discord.Embed(title='{} // {}'.format(act[3], act[1]), description=act[2], url=act[0], color=0xBDFDFF)
   embed.set_image(url=act[0])
   await ctx.send(embed=embed)
 
@@ -70,12 +74,8 @@ async def help(ctx):
   =company {companhia} : Próximo lançamento de determinada companhia
   =apod : Imagem do dia pela NASA
   =list : Lista de companhias suportadas
-  =issnow : Posição atual da ISS
-  =presence : Muda o status do bot (temos três opções)
+  =issnow : Posição atual da ISS'''
   
-  Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nulo** na resposta da API. Isso significa que aquele parâmetro ainda não foi definido, e provavelmente o lançamento ainda está longe de acontecer.
-  
-  Criado por .Francisco Pessoa#8327'''
   await ctx.send(help_text)
 
 @client.command()
@@ -110,5 +110,5 @@ async def issnow(ctx):
 async def list(ctx):
   await ctx.send(file=discord.File('list.txt'))
 
-host_bot()
+client.loop.create_task(change_status())
 client.run(os.getenv('BOT_TOKEN'))
