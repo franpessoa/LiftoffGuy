@@ -2,7 +2,6 @@
 import folium
 import requests
 import json
-from time import sleep
 
 # Request para a API #
 url = 'http://api.open-notify.org/iss-now.json'
