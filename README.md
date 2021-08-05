@@ -1,4 +1,3 @@
-
 # LiftoffGuy
 Bot para o discord feito com a biblioteca discord.py.
 Além dá própria discord.py não precisa de nenhuma outra biblioteca para funcionar
@@ -7,12 +6,7 @@ Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nul
 Isso significa que aquele parâmetro ainda não foi definido, e provavelmente o lançamento ainda está longe de acontecer. 
 Quando a data de lançamento estiver próximo, com quase total certeza ele vai aparecer
 
-Para que ele funcione no seu computador, crie um arquivo chamado .env, lá digite o seguinte código: 
-
-```
-BOT_TOKEN = token do sue bot
-NASA_API_TOKEN = token da api da nasa : https://api.nasa.gov
-```
+Para que ele funcione no seu computador, altere as linhas 9 e 10 do ```main.py```, colocando sua key da API da NASA (https://api.nasa.gov/), e o token do seu bot (https://discord.com/developers/)
 
 Remova o texto e coloque seus tokens
 
