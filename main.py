@@ -1,10 +1,13 @@
 import discord
-import os
 import apirequest
 import json
 import requests
 import asyncio
 from discord.ext import commands
+
+# CHANGE THIS #
+nasa_api_key = ''
+bot_token = ''
 
 client = commands.Bot(command_prefix='=', help_command=None)
 
@@ -17,7 +20,7 @@ async def change_status():
 
 
 def apod_get():
-  nx = requests.get('https://api.nasa.gov/planetary/apod?api_key={}'.format(os.getenv(NASA_API_KEY)))
+  nx = requests.get('https://api.nasa.gov/planetary/apod?api_key={}'.format('EfsbEyksPoKX2h4uvVgAFudxt4QYodjwvFciUSWE'))
   data = json.loads(nx.text)
   name = data["title"]
   des = data["explanation"]
@@ -27,33 +30,38 @@ def apod_get():
   return lista
 
 @client.command()
-async def next(ctx):
+async def nl(ctx):
   url = apirequest.no_search()
   embedVar = apirequest.request(url)
   if not embedVar:
-    await ctx.send("Tivemos um erro :(")
+    await ctx.send("{} Tivemos um erro :(".format(ctx.author.mention))
   else:
-    embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0xffdd00)
-    embed.add_field(name='Foguete', value=embedVar[0], inline=True)
-    embed.add_field(name='Órbita', value=embedVar[4], inline=True)
-    embed.add_field(name='Missão', value=embedVar[3], inline=True)
-    embed.add_field(name='Tipo', value=embedVar[5], inline=True)
-    embed.add_field(name='Status', value=embedVar[6], inline=True)
-    embed.add_field(name='Pad', value=embedVar[8], inline=True)
-    await ctx.send(embed=embed)
+    des = '''{}\n
+    Foguete: {}
+    Órbita: {}
+    Missão: {}
+    Tipo: {}
+    Status: {}
+    Pad: {}'''.format(embedVar[7], embedVar[0], embedVar[4], embedVar[3], embedVar[5], embedVar[6], embedVar[8])
+    embed = discord.Embed(title=embedVar[2], description=des, color=0xFFDD91)
+    await ctx.send(ctx.author.mention, embed=embed)
 
 @client.command()
-async def company(ctx, argument):
+async def c(ctx, argument):
   url = apirequest.company_name(argument)
   embedVar = apirequest.request(url)
-  embed = discord.Embed(title=embedVar[2], description=embedVar[7], color=0xffdd00)
-  embed.add_field(name='Foguete', value=embedVar[0], inline=True)
-  embed.add_field(name='Órbita', value=embedVar[4], inline=True)
-  embed.add_field(name='Missão', value=embedVar[3], inline=True)
-  embed.add_field(name='Tipo', value=embedVar[5], inline=True)
-  embed.add_field(name='Status', value=embedVar[6], inline=True)
-  embed.add_field(name='Pad', value=embedVar[8], inline=True)
-  await ctx.send(embed=embed)
+  if not embedVar:
+    await ctx.send("{} Tivemos um erro :(".format(ctx.author.mention))
+  else:
+    des = '''{}\n
+    Foguete: {}
+    Órbita: {}
+    Missão: {}
+    Tipo: {}
+    Status: {}
+    Pad: {}'''.format(embedVar[7], embedVar[0], embedVar[4], embedVar[3], embedVar[5], embedVar[6], embedVar[8])
+    embed = discord.Embed(title=embedVar[2], description=des, color=0xFFDD91)
+    await ctx.send(ctx.author.mention, embed=embed)
 
 @client.command()
 async def apod(ctx):
@@ -64,19 +72,19 @@ async def apod(ctx):
 
 @client.command()
 async def help(ctx):
-  help_text = '''**LISTA DE COMANDOS**
+  help_text = '''**COMANDOS:**
   =help : Lista de Comandos
   =add : Adicione o bot em seu server
   =github : Github do projeto
   =site : Site do bot
-  
-  =next : Próximo lançamento
-  =company {companhia} : Próximo lançamento de determinada companhia
+
+  =nl : Próximo lançamento
+  =c {companhia} : Próximo lançamento de determinada companhia
   =apod : Imagem do dia pela NASA
-  =list : Lista de companhias suportadas
-  =issnow : Posição atual da ISS'''
-  
-  await ctx.send(help_text)
+  =ls : Lista de companhias suportadas
+  =iss : Posição atual da ISS'''
+  embed = discord.Embed(title='Comando de ajuda', description=help_text, color=0xCC0000)
+  await ctx.send(ctx.author.mention, embed=embed)
 
 @client.command()
 async def add(ctx):
@@ -94,7 +102,7 @@ async def site(ctx):
   https://arco.coop.br/~franpessoa/lox-loading-complete.html''')
 
 @client.command()
-async def issnow(ctx):
+async def iss(ctx):
   url = 'http://api.open-notify.org/iss-now.json'
   issnow = requests.get(url)
   issnow_data = json.loads(issnow.text)
@@ -107,8 +115,8 @@ async def issnow(ctx):
   await ctx.send(embed=embed)
 
 @client.command()
-async def list(ctx):
+async def ls(ctx):
   await ctx.send(file=discord.File('list.txt'))
 
 client.loop.create_task(change_status())
-client.run(os.getenv('BOT_TOKEN'))
+client.run(bot_token)
