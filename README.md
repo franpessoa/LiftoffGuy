@@ -22,7 +22,7 @@ Site: https://arco.coop.br/~franpessoa/lox-loading-complete.html
 
 ## O mapa da ISS
 O script para o mapa de onde a ISS está cria uma página HTML em um diretó
-rio, que pode ser alterado na linha **31**, o padrão é ```./www/iss.html```.
+rio, que pode ser alterado na linha **31**, o padrão é ```./www/index.html```.
 Esse código é complementar ao bot, e não precisa ser rodado junto. Ele é feito com a lib ```folium``` que precisa ser instalada.\
 O resultado: https://arco.coop.br/~franpessoa/iss/
 
