@@ -41,5 +41,13 @@ pip install folium
 
 As outras bibliotecas são built-in no Python
 
+## Rodando o mapa [Linux]
+Para rodar o script do mapa, coloque o shell script e o script Python na mesma pasta, e utilize
+```
+source ~/diretorio/iss-map.sh
+```
+
+Lembrando que o ~ é sua /home/user/
+
 ## Compatibilidade
 Tanto o bot quanto o script do mapa rodam em um servidor com Python v3.5
