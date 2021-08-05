@@ -1,5 +1,5 @@
 
-# LOXLoadingComplete
+# LiftoffGuy
 Bot para o discord feito com a biblioteca discord.py.
 Além dá própria discord.py não precisa de nenhuma outra biblioteca para funcionar
 
