@@ -20,7 +20,7 @@ async def change_status():
 
 
 def apod_get():
-  nx = requests.get('https://api.nasa.gov/planetary/apod?api_key={}'.format('EfsbEyksPoKX2h4uvVgAFudxt4QYodjwvFciUSWE'))
+  nx = requests.get('https://api.nasa.gov/planetary/apod?api_key={}'.format(nasa_api_key))
   data = json.loads(nx.text)
   name = data["title"]
   des = data["explanation"]
