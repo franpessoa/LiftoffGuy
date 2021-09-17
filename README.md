@@ -21,27 +21,15 @@ Esse código é complementar ao bot, e não precisa ser rodado junto. Ele é fei
 O resultado: https://arco.coop.br/~franpessoa/iss/
 
 ## Instalações
-Para o bot só, é só usar:
-
+Para o bot e o mapa da ISS, use:
 ```
-pip install discord
-```
-
-O mapa da ISS precisa da folium, uma biblioteca que eu usei para fazer o mapa:
-
-```
-pip install folium
+pip install -r requirements.txt
 ```
 
 As outras bibliotecas são built-in no Python
 
-## Rodando o mapa [Linux]
-Para rodar o script do mapa, coloque o shell script e o script Python na mesma pasta, e utilize
-```
-source ~/diretorio/iss-map.sh
-```
-
-Lembrando que o ~ é sua /home/user/
+## Rodando o mapa 
+Execute o script```/Mapa-ISS/iss-map.py```
 
 ## Compatibilidade
 Tanto o bot quanto o script do mapa rodam em um servidor com Python v3.5

@@ -1,0 +1,4 @@
+/venv/
+/.env/
+/LiftoffGuy.code-workspace
+/Mapa-ISS/__pycache__/
