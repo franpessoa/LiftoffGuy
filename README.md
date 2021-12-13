@@ -6,10 +6,15 @@ Se um comando falhar, é por que um dos parâmetros que o bot mostra está **nul
 Isso significa que aquele parâmetro ainda não foi definido, e provavelmente o lançamento ainda está longe de acontecer. 
 Quando a data de lançamento estiver próximo, com quase total certeza ele vai aparecer
 
-Para que ele funcione no seu computador, altere as linhas 9 e 10 do ```main.py```, colocando sua key da API da NASA (https://api.nasa.gov/), e o token do seu bot (https://discord.com/developers/)
+## Estrutura .env
+Dados secretos, como o token do bot, são armanezenados em um arquivo ```.env```. Para que o programa funcione, crie esse arquivo e coloque nele os dados, nessa maneira:
 
-Remova o texto e coloque seus tokens
+```
+NASA_API_KEY=Key da api da nasa, https://api.nasa.gov/
+BOT_TOKEN=Token do bot do discord, https://discord.com/developers
+```
 
+## Links
 Para adicionar o bot, https://discord.com/api/oauth2/authorize?client_id=817438170097385523&permissions=8&scope=bot
 
 Site: https://arco.coop.br/~franpessoa/lox-loading-complete.html
