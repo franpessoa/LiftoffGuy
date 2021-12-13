@@ -4,10 +4,11 @@ import json
 import requests
 import asyncio
 from discord.ext import commands
+from dotenv import load_dotenv
 
 # CHANGE THIS #
-nasa_api_key = ''
-bot_token = ''
+nasa_api_key = load_dotenv("NASA_API_KEY")
+bot_token = load_dotenv("BOT_TOKEN")
 
 client = commands.Bot(command_prefix='=', help_command=None)
 
